@@ -233,7 +233,7 @@ body {
   font-weight: bold;
 }
 .success {
-  color: rgb(88, 204, 2);
+  color: rgb(var(--color-owl));
 }
 .danger {
   color: rgb(var(--color-cardinal-always-light));

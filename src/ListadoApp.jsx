@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaCheck, FaMinusCircle } from "react-icons/fa";
+import { Formulario } from "./components/Formulario";
 
 const Items = ({ nombre, visto, id }) => {
   return (
@@ -31,16 +32,10 @@ export const ListadoApp = () => {
 
   const [arreglo, setArreglo] = useState(listadoSecciones);
 
-  const agregarNuevaTarea = () => {
-    let tarea = document.getElementById("tarea").value;
-    let visto = document.getElementById("visto").checked;
-    console.log({ nombre: tarea, visto: visto });
-    setArreglo([...arreglo, { nombre: tarea, visto: visto }]);
-  };
-
   return (
     <>
       <h1>Listado de Temas del Curso</h1>
+      <Formulario agregarTarea={setArreglo}/>
       <ol>
         {arreglo.map((row, index) => (
           // version corta
@@ -49,8 +44,7 @@ export const ListadoApp = () => {
           //   <Items id={index} key={index} nombre={row.nombre} visto={row.visto} />
         ))}
       </ol>
-      <input type="text" id="tarea" />
-      <input type="checkbox" id="visto" />
+
       <button onClick={() => agregarNuevaTarea()}>Agregar Nuevo</button>
     </>
   );
